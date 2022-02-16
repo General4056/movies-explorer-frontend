@@ -1,0 +1,124 @@
+.techs {
+  display: flex;
+  flex-direction: column;
+  background: #272727;
+  padding: 0 70px;
+}
+
+.techs__title {
+  margin: 100px 0 90px;
+}
+
+.techs__subtitle {
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  margin: 0 0 26px;
+}
+
+.techs__text {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  margin: 0 0 100px;
+  max-width: 460px;
+  align-self: center;
+}
+
+.techs__list {
+  margin: 0 auto 100px;
+  padding: 0;
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: repeat(auto-fit, 90px);
+  gap: 10px 10px;
+}
+
+.techs__list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  list-style: none;
+  width: 90px;
+  height: 60px;
+  background: #303030;
+  border-radius: 10px;
+}
+
+.techs__list-item:last-of-type {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 830px) {
+  .techs {
+    padding: 0 50px;
+  }
+
+  .techs__title {
+    margin: 70px 0 80px;
+  }
+
+  .techs__subtitle {
+    margin: 0 0 24px;
+  }
+
+  .techs__text {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0 0 83px;
+  }
+
+  .techs__list {
+    margin: 0 auto 100px;
+    padding: 0;
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, 84px);
+    gap: 10px 10px;
+  }
+
+  .techs__list-item {
+    width: 84px;
+    height: 57px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .techs {
+    padding: 0 14px;
+  }
+
+  .techs__title {
+    margin: 22px 0 60px;
+  }
+
+  .techs__subtitle {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .techs__text {
+    font-size: 11px;
+    line-height: 16px;
+    margin: 0 0 50px;
+  }
+
+  .techs__list {
+    margin: 0 auto 100px;
+    padding: 0;
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(2, 84px);
+    gap: 10px 10px;
+  }
+}
