@@ -1,16 +1,23 @@
 import "./Promo.css";
 import landingLogo from "../../images/landing-logo.png";
+import { Link, useNavigate } from "react-router-dom";
 
 function Promo() {
+  const navigate = useNavigate();
+  function onSigninClick() {
+    navigate("/signin");
+  }
   return (
     <section className="promo">
       <div className="promo__header">
-        <a href="#" className="promo__logo"></a>
+        <Link to="/" className="logo"></Link>
         <div className="promo__button-container">
-          <a href="#" className="promo__register-button">
+          <Link to="/signup" className="promo__register-button">
             Регистрация
-          </a>
-          <button className="promo__signin-button">Войти</button>
+          </Link>
+          <button onClick={onSigninClick} className="promo__signin-button">
+            Войти
+          </button>
         </div>
       </div>
       <div className="promo__description">
@@ -23,7 +30,11 @@ function Promo() {
           </p>
           <button className="promo__link">Узнать больше</button>
         </div>
-        <img src={landingLogo} className="promo__landing-logo"></img>
+        <img
+          src={landingLogo}
+          alt="логотип"
+          className="promo__landing-logo"
+        ></img>
       </div>
     </section>
   );

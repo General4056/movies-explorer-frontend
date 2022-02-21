@@ -1,8 +1,8 @@
 .footer {
   display: flex;
   flex-direction: column;
-  padding: 0 70px;
-  margin: 36px 0 0;
+  padding: 36px 70px 0;
+  margin: auto 0 0;
 }
 
 .footer__text {
