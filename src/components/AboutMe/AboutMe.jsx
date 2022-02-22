@@ -23,12 +23,19 @@ function AboutMe() {
               <a
                 href="https://www.facebook.com"
                 className="about-me__link-text"
+                target="_blank"
+                rel="noreferrer"
               >
                 Facebook
               </a>
             </li>
             <li className="about-me__social-link">
-              <a href="https://github.com" className="about-me__link-text">
+              <a
+                href="https://github.com"
+                className="about-me__link-text"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Github
               </a>
             </li>
@@ -40,19 +47,34 @@ function AboutMe() {
         <h3 className="portfolio__title">Портфолио</h3>
         <ul className="portfolio__list">
           <li className="portfolio__item">
-            <a href="https://github.com" className="portfolio__link">
+            <a
+              href="https://github.com"
+              className="portfolio__link"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span>Статичный сайт</span>
               <div className="portfolio__icon"></div>
             </a>
           </li>
           <li className="portfolio__item">
-            <a href="https://github.com" className="portfolio__link">
+            <a
+              href="https://github.com"
+              className="portfolio__link"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span>Адаптивный сайт</span>
               <div className="portfolio__icon"></div>
             </a>
           </li>
           <li className="portfolio__item">
-            <a href="https://github.com" className="portfolio__link">
+            <a
+              href="https://github.com"
+              className="portfolio__link"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span>Одностраничное приложение</span>
               <div className="portfolio__icon"></div>
             </a>

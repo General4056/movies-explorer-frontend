@@ -5,7 +5,12 @@ function SearchForm() {
     <section className="search">
       <div className="search__container">
         <label className="search__label">
-          <input type="text" className="search__input" placeholder="Фильм" />
+          <input
+            type="text"
+            className="search__input"
+            placeholder="Фильм"
+            required
+          />
           <button className="search__button"></button>
         </label>
         <div className="switch-container">
