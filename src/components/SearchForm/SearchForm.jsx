@@ -4,7 +4,7 @@ function SearchForm() {
   return (
     <section className="search">
       <div className="search__container">
-        <label className="search__label">
+        <form className="search__label">
           <input
             type="text"
             className="search__input"
@@ -12,7 +12,7 @@ function SearchForm() {
             required
           />
           <button className="search__button"></button>
-        </label>
+        </form>
         <div className="switch-container">
           <span className="switch-container__text">Короткометражки</span>
           <label className="switch">
