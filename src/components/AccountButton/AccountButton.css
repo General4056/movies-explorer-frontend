@@ -1,0 +1,37 @@
+.account-button {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.account-button:hover {
+  opacity: 0.7;
+}
+
+.account-button__text {
+  margin-right: 17px;
+}
+
+.account-button__image {
+  height: 30px;
+  width: 25px;
+  background: #313131;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-button__icon {
+  background-image: url(../../images/accaunt.svg);
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 15px;
+}

@@ -1,0 +1,29 @@
+.movie-card__save-button {
+  align-self: center;
+  width: 100px;
+  height: 29px;
+  border: 0;
+  background: #313131;
+  border-radius: 30px;
+  font-size: 12px;
+  line-height: 11px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.movie-card__save-button:hover {
+  opacity: 0.7;
+}
+
+.movie-card__save-button_active {
+  align-self: center;
+  width: 100px;
+  height: 29px;
+  border: 0;
+  background-color: #ee3465;
+  border-radius: 30px;
+  background-image: url(../../images/save_button.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
