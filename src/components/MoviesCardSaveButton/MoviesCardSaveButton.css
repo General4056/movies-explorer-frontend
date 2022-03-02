@@ -1,4 +1,5 @@
 .movie-card__save-button {
+  margin-top: auto;
   align-self: center;
   width: 100px;
   height: 29px;

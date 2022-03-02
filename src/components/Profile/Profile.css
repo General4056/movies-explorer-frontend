@@ -18,6 +18,7 @@
 }
 
 .profile__form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,6 +72,25 @@
   left: 0;
 }
 
+.profile__span {
+  position: absolute;
+  top: 90px;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: aqua;
+}
+
+.profile__span_error {
+  top: 16px;
+  color: #ee3465;
+}
+
+.profile__span_error-email {
+  top: 30px;
+  color: #ee3465;
+}
+
 .profile__form-button {
   margin: 220px 0 16px;
   padding: 0;
@@ -82,6 +102,10 @@
   line-height: 16px;
   cursor: pointer;
   transition: 0.2s;
+}
+
+.profile__form-button:disabled {
+  cursor: auto;
 }
 
 .profile__form-button:hover {

@@ -1,27 +1,37 @@
 import "./MoviesCard.css";
-import cardImage from "../../images/card_img.png";
-import { useState } from "react";
 import MoviesCardSaveButton from "../MoviesCardSaveButton/MoviesCardSaveButton";
 import MoviesCardDeleteButton from "../MoviesCardDeleteButton/MoviesCardDeleteButton";
 
-function MoviesCard({ isThisSavedMovies }) {
-  //Состояния для проверки верстки
-  const [isSaved, setIsSaved] = useState(false);
+function MoviesCard({
+  movie,
+  isThisSavedMovies,
+  savedMovies,
+  onMovieCardButtonClick,
+}) {
+  const isSaved = savedMovies.some((i) => i.movieId === movie.movieId);
+
+  function onButtonClick() {
+    console.log(isSaved);
+    onMovieCardButtonClick(movie, isSaved);
+  }
   return (
     <li className="movie-card">
       <div className="movie-card__container">
-        <h2 className="movie-card__title">В погоне за Бенкси</h2>
-        <p className="movie-card__text">27 минут</p>
+        <h2 className="movie-card__title">{movie.nameRU}</h2>
+        <p className="movie-card__text">{`${movie.duration} минут`}</p>
       </div>
-      <img
-        src={cardImage}
-        alt="В погоне за Бенкси"
-        className="movie-card__image"
-      />
+      <a href={movie.trailerLink} target="_blank" rel="noreferrer">
+        <img
+          src={movie.image}
+          alt={movie.nameRU}
+          className="movie-card__image"
+        />
+      </a>
+
       {!isThisSavedMovies ? (
-        <MoviesCardSaveButton isSaved={isSaved} setIsSaved={setIsSaved} />
+        <MoviesCardSaveButton isSaved={isSaved} onButtonClick={onButtonClick} />
       ) : (
-        <MoviesCardDeleteButton />
+        <MoviesCardDeleteButton onButtonClick={onButtonClick} />
       )}
     </li>
   );

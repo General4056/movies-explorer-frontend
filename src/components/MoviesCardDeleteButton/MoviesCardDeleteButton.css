@@ -1,4 +1,5 @@
 .movie-card__delete-button {
+  margin-top: auto;
   align-self: center;
   background-image: url(../../images/close__icon.svg);
   background-repeat: no-repeat;
