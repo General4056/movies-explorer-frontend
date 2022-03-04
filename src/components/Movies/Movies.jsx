@@ -9,20 +9,23 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 import "./Movies.css";
 
-function Movies({ savedMovies, onMovieCardButtonClick }) {
+function Movies({ savedMovies, onMovieCardButtonClick, loggedIn }) {
   const [movies, setMovies] = useState([]);
   const [moviesIsLoading, setMoviesIsLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     const localMovies = localStorage.getItem("movies");
+    const localCheckboxState = localStorage.getItem("isShort");
     if (localMovies) {
       setMovies(JSON.parse(localMovies));
+      localCheckboxState === "true" ? setIsChecked(true) : setIsChecked(false);
     }
   }, []);
 
-  const searchMovies = (value, isShortMovies) => {
+  const searchMovies = (value) => {
     setMoviesIsLoading(true);
     setTimeout(() => {
       getFilms()
@@ -30,11 +33,11 @@ function Movies({ savedMovies, onMovieCardButtonClick }) {
           const searchedMoviesByQuery = filterByQuery(movies, value);
           const searchedMoviesbyDuration = filterByDuration(
             searchedMoviesByQuery,
-            isShortMovies
+            isChecked
           );
           const moviesToSave = searchedMoviesbyDuration.map((movie) => {
             return {
-              country: movie.country,
+              country: movie.country || "not found",
               description: movie.description,
               director: movie.director,
               duration: movie.duration,
@@ -52,10 +55,12 @@ function Movies({ savedMovies, onMovieCardButtonClick }) {
             setLoadingMessage("Ничего не найдено");
           } else {
             setLoadingMessage("");
-            localStorage.setItem("movies", JSON.stringify(moviesToSave));
             console.log(moviesToSave);
             setMovies(moviesToSave);
           }
+          localStorage.setItem("movies", JSON.stringify(moviesToSave));
+          localStorage.setItem("query", JSON.stringify(value));
+          localStorage.setItem("isShort", isChecked);
         })
         .catch((err) => {
           console.log(err.message);
@@ -67,15 +72,17 @@ function Movies({ savedMovies, onMovieCardButtonClick }) {
 
   return (
     <>
-      <Header />
+      <Header loggedIn={loggedIn} isThisMain={false} />
       <SearchForm
+        isThisSavedMovies={false}
         searchMovies={searchMovies}
         moviesIsLoading={moviesIsLoading}
+        isChecked={isChecked}
+        setIsChecked={setIsChecked}
       />
       <MoviesCardList
         moviesIsLoading={moviesIsLoading}
         loadingMessage={loadingMessage}
-        isThisSavedMovies={false}
         movies={movies}
         savedMovies={savedMovies}
         onMovieCardButtonClick={onMovieCardButtonClick}

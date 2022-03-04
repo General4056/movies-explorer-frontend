@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { filterByDuration, filterByQuery } from "../../utils/utils";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -10,23 +11,35 @@ function SavedMovies({
   setSavedMovies,
   onMovieCardButtonClick,
   savedMoviesIsLoading,
+  loggedIn,
 }) {
+  const [isChecked, setIsChecked] = useState(false);
+  const [renderedMovies, setRenderedMovies] = useState([]);
+  useEffect(() => {
+    setRenderedMovies(savedMovies);
+  }, [savedMovies]);
+
   const searchMovies = (value, isShortMovies) => {
     const searchedMovies = filterByQuery(savedMovies, value);
-    const searchedMoviesbyDuration = filterByDuration(
+    const searchedMoviesByDuration = filterByDuration(
       searchedMovies,
       isShortMovies
     );
-    setSavedMovies(searchedMoviesbyDuration);
+    setRenderedMovies(searchedMoviesByDuration);
   };
 
   return (
     <div className="saved-movies">
-      <Header />
-      <SearchForm searchMovies={searchMovies} />
+      <Header loggedIn={loggedIn} isThisMain={false} />
+      <SearchForm
+        isThisSavedMovies={true}
+        searchMovies={searchMovies}
+        isChecked={isChecked}
+        setIsChecked={setIsChecked}
+      />
       <MoviesCardList
         isThisSavedMovies={true}
-        movies={savedMovies}
+        movies={renderedMovies}
         savedMovies={savedMovies}
         moviesIsLoading={savedMoviesIsLoading}
         onMovieCardButtonClick={onMovieCardButtonClick}

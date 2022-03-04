@@ -75,8 +75,8 @@ function MoviesCardList({
         )
       )}
       {!isThisSavedMovies &&
-        renderedMovies.length !== movieLimit &&
-        movies.length > movieLimit && (
+        renderedMovies.length < movieLimit &&
+        restMovies.length !== 0 && (
           <button className="movies__button" onClick={onButtonIncrementClick}>
             Ещё
           </button>

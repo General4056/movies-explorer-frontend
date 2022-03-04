@@ -51,7 +51,11 @@ function App() {
         .then((userData) => {
           setLoggedIn(true);
           setCurrentUser(userData);
-          navigate(path);
+          if (path === "/signin" || path === "/signup") {
+            navigate("/");
+          } else {
+            navigate(path);
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -163,6 +167,8 @@ function App() {
     setLoggedIn(false);
     localStorage.removeItem("token");
     localStorage.removeItem("movies");
+    localStorage.removeItem("query");
+    localStorage.removeItem("isShort");
     navigate("/");
   }
   return (
@@ -170,7 +176,7 @@ function App() {
       <div className="root">
         <div className="page">
           <Routes>
-            <Route path="/" element={<Main />} />
+            <Route path="/" element={<Main loggedIn={loggedIn} />} />
             <Route
               path="/movies"
               element={
@@ -178,6 +184,7 @@ function App() {
                   loggedIn={loggedIn}
                   component={
                     <Movies
+                      loggedIn={loggedIn}
                       setCurrentUser={setCurrentUser}
                       savedMovies={savedMovies}
                       onMovieCardButtonClick={onMovieCardButtonClick}
@@ -193,6 +200,7 @@ function App() {
                   loggedIn={loggedIn}
                   component={
                     <SavedMovies
+                      loggedIn={loggedIn}
                       savedMovies={savedMovies}
                       savedMoviesIsLoading={savedMoviesIsLoading}
                       setSavedMovies={setSavedMovies}
@@ -209,6 +217,7 @@ function App() {
                   loggedIn={loggedIn}
                   component={
                     <Profile
+                      loggedIn={loggedIn}
                       isRequestSending={isRequestSending}
                       currentUser={currentUser}
                       onEditProfile={onEditProfile}
@@ -223,6 +232,7 @@ function App() {
               path="/signup"
               element={
                 <Register
+                  loggedIn={loggedIn}
                   isRequestSending={isRequestSending}
                   handleRegister={handleRegister}
                   registerError={registerError}
@@ -233,6 +243,7 @@ function App() {
               path="/signin"
               element={
                 <Login
+                  loggedIn={loggedIn}
                   handleLogin={handleLogin}
                   loginError={loginError}
                   isRequestSending={isRequestSending}
@@ -240,7 +251,7 @@ function App() {
               }
             />
             <Route path="/*" element={<PageNotFound />} />
-          </Routes>{" "}
+          </Routes>
           <ErrorPopup
             errorMessage={errorMessage}
             setErrorMessage={setErrorMessage}

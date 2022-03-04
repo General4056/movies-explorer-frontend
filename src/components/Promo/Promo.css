@@ -2,7 +2,7 @@
   background-color: #073042;
   display: flex;
   flex-direction: column;
-  padding: 0 70px;
+  padding: 76px 70px 0;
 }
 
 .promo__header {
@@ -10,40 +10,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 0 94px;
-}
-
-.promo__button-container {
-  display: flex;
-  align-items: center;
-}
-
-.promo__register-button {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  text-decoration: none;
-  color: white;
-}
-
-.promo__register-button:hover {
-  opacity: 0.7;
-}
-
-.promo__signin-button {
-  background-color: #3ddc84;
-  border: 0;
-  border-radius: 3px;
-  width: 76px;
-  height: 32px;
-  margin-left: 30px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  cursor: pointer;
-}
-
-.promo__signin-button:hover {
-  opacity: 0.7;
 }
 
 .promo__description {
@@ -100,7 +66,7 @@
 
 @media screen and (max-width: 850px) {
   .promo {
-    padding: 0 30px;
+    padding: 137px 30px 0;
   }
   .promo__header {
     padding: 18px 0 158px;
@@ -139,7 +105,7 @@
 
 @media screen and (max-width: 400px) {
   .promo {
-    padding: 0 14px;
+    padding: 67px 14px 0;
   }
   .promo__register-button {
     font-size: 10px;

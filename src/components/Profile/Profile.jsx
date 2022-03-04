@@ -9,6 +9,7 @@ function Profile({
   updateUserMessage,
   handleExit,
   isRequestSending,
+  loggedIn,
 }) {
   const currentUser = useContext(CurrentUserContext);
   const userNameInput = useInput(`${currentUser.name}`, {
@@ -35,7 +36,7 @@ function Profile({
 
   return (
     <div className="profile">
-      <Header />
+      <Header isThisMain={false} loggedIn={loggedIn} />
       <div className="profile__container">
         <h2 className="profile__greeting">{`Привет, ${currentUser.name}!`}</h2>
         <form
