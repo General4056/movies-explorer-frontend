@@ -74,9 +74,18 @@
 }
 
 .form-register__container {
+  position: relative;
   margin-top: 128px;
   display: flex;
   flex-direction: column;
+}
+
+.form-register__submit-error {
+  position: absolute;
+  top: -26px;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ee3465;
 }
 
 .form-register__submit-button {

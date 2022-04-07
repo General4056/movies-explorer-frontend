@@ -56,6 +56,15 @@
   opacity: 0.7;
 }
 
+.search__error {
+  left: 20px;
+  bottom: -18px;
+  font-size: 14px;
+  position: absolute;
+  line-height: 12px;
+  color: #ee3465;
+}
+
 .switch-container {
   display: flex;
   align-items: center;
